@@ -9,7 +9,7 @@
 #import "NSString+Base64.h"
 
 #define CocoaMiteErrorDomain @"CocoaMiteErrorDomain"
-#define DEFAULT_AGENT_NAME @"CocoaMite"
+#define CocoaMiteDefaultAgentName @"CocoaMite"
 
 @interface CocoaMite ()
 
@@ -92,21 +92,21 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)customers: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
+-(void)customers: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"customers" parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)projects: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
+-(void)projects: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"projects" parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)services: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
+-(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"services" parameters: parameters callback: callback];
 }
@@ -364,7 +364,7 @@
     if(_agentName)
         return _agentName;
     
-    return DEFAULT_AGENT_NAME;
+    return CocoaMiteDefaultAgentName;
 }
 
 @end

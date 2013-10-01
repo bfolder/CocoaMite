@@ -53,42 +53,69 @@
 ///---------------------------------------------------------------------------------------
 
 /**
- *
+ *  Retrieves your account
  */
 -(void)currentAccountWithCallback: (void (^)(NSError *error, id result))callback;
 
 /**
- *
+ *  Retrieves the user signed in to the mite.api at the moment.
  */
 -(void)currentUserWithCallback: (void (^)(NSError *error, id result))callback;
 
 /**
+ *  Retrieves all Customers sorted by name.
+ *  Customers can not be edited by time trackers. Time trackers can only read customers of projects they were granted access to.
  *
+ *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)customers: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
+-(void)customers: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
 
 /**
+ *  Retrieves all Projects sorted by name.
+ *  Projects can not be edited by time trackers. Time trackers can only read projects they were granted access to.
  *
+ *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)projects: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
+-(void)projects: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
 
 /**
+ *  Retrieves all Services sorted by name.
+ *  Services can not be edited by time trackers. Time trackers can only read projects they were granted access to.
  *
+ *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)services: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
+-(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
 
 /**
+ *  Retrieves all time entries for all users, sorted in reverse chronological order ('date_at').
+ *  A user of role time tracker can only access his own time entries.
+ * 
+ *  Time entries can be filtered with the following parameters (As key/value pairs in the dictionary):
  *
+ *  'id' -> Retrieve a single customer
+ *  'customer_id' -> ID of the customer
+ *  'project_id' -> ID of the project
+ *  'service_id' -> ID of the service
+ *  'user_id' -> ID of the user
+ *  'billable' -> true or false
+ *  'note' -> Search within the notes of time entries
+ *  'at' -> today, yesterday, this_week, last_week, this_month, last_month or dates formatted YYYY-MM-DD
+ *  'from', 'to' -> both formatted YYYY-MM-DD
+ *  'locked' -> true or false
+ *
+ *  They can also grouped by the parameter 'grouped_by' with values 'customer', 'project', 'service', 'user', 'day', 'week', 'month' or 'year'.
  */
 -(void)timeEntries: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
 
 /**
- *
+ *  Retrieves all bookmarks, sorted by name.
+ *  
+ *  The parameter 'id' retrieves a single bookmark
  */
 -(void)timeEntryBookmarks: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
 
 /**
- *
+ *  Retrieves the current time tracker.
  */
 -(void)currentTrackerWithCallback: (void (^)(NSError *error, id result))callback;
 
