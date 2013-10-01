@@ -10,7 +10,7 @@
 @interface CocoaMite : NSObject
 
 ///---------------------------------------------------------------------------------------
-/// @name Creating & Setting up CocoaMite Clients
+/// @name Setup
 ///---------------------------------------------------------------------------------------
 
 /**
@@ -49,19 +49,130 @@
 -(id)initWithUsername: (NSString *)username password: (NSString *)password subdomain: (NSString *)subdomain;
 
 ///---------------------------------------------------------------------------------------
-/// @name General Methods
+/// @name Retrieve
 ///---------------------------------------------------------------------------------------
 
-///---------------------------------------------------------------------------------------
-/// @name Retrieving Methods
-///---------------------------------------------------------------------------------------
+/**
+ *
+ */
+-(void)currentAccountWithCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)currentUserWithCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)customers: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)projects: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)services: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)timeEntries: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)timeEntryBookmarks: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)currentTrackerWithCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 ///---------------------------------------------------------------------------------------
-/// @name Creating Methods
+/// @name Create
 ///---------------------------------------------------------------------------------------
 
+/**
+ *
+ */
+-(void)addCustomer: (NSDictionary *)data withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)addProject (NSDictionary *)data withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)addService: (NSDictionary *)data withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)addTimeEntry: (NSDictionary *)data withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)startTrackerOnEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
 ///---------------------------------------------------------------------------------------
-/// @name Updating Methods
+/// @name Update
 ///---------------------------------------------------------------------------------------
+
+/**
+ *
+ */
+-(void)updateCustomer: (NSInteger)customerId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)updateProject: (NSInteger)projectId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)updateService (NSInteger)serviceId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)updateTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+
+///---------------------------------------------------------------------------------------
+/// @name Destroy
+///---------------------------------------------------------------------------------------
+
+/**
+ *
+ */
+-(void)removeCustomer: (NSInteger)customerId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)removeProject: (NSInteger)projectId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)removeService: (NSInteger)serviceId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)removeTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+
+/**
+ *
+ */
+-(void)stopTracker: (NSInteger)trackerId withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 @end
