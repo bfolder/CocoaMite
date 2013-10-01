@@ -2,7 +2,7 @@
 //  Tests.m
 //  Tests
 //
-//  Created by Heiko Dreyer on 30.09.13.
+//  Created by Heiko Dreyer on 09/30/13.
 //
 //
 
@@ -10,6 +10,10 @@
 #import "Definitions.h"
 
 @interface GeneralTests : SenTestCase
+{
+    CocoaMite *_client;
+}
+
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,6 +26,8 @@
 -(void)setUp
 {
     [super setUp];
+    
+    _client = [[CocoaMite alloc] initWithApiKey: API_KEY subdomain: SUBDOMAIN];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,12 +35,18 @@
 -(void)tearDown
 {
     [super tearDown];
+    
+    _client = nil;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)testCurrentAccount
 {
-    STFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    //STFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    [_client currentAccountWithCallback: ^(NSError *error, NSDictionary *result) {
+        STAssertNotNil(error, @"No Errors should occur - Check connection or whatever");
+        STAssertNotNil(result, @"Call should have a result");
+    }];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

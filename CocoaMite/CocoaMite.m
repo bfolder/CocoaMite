@@ -13,7 +13,7 @@
 
 -(void)_callMethod: (NSString *)method
           withPath: (NSString *)path
-        parameters: (NSDictionary *)paramters
+        parameters: (NSDictionary *)parameters
               data: (NSDictionary *)data
           callback: (void (^)(NSError *error, NSDictionary *result))callback;
 
@@ -22,7 +22,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 @implementation CocoaMite
-{}
+{
+    NSOperationQueue *_queue;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -227,10 +229,41 @@
 
 -(void)_callMethod: (NSString *)method
           withPath: (NSString *)path
-        parameters: (NSDictionary *)paramters
+        parameters: (NSDictionary *)parameters
               data: (NSDictionary *)data
           callback: (void (^)(NSError *error, NSDictionary *result))callback
 {
+    NSURL *url = nil;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url
+                                                           cachePolicy: NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval: 60.0];
+    
+    NSString *string = @"";
+    NSData *requestData = [NSData dataWithBytes: [string UTF8String] length: [string length]];
+    
+    [request setHTTPMethod: method];
+    [request setValue: @"application/json" forHTTPHeaderField: @"Accept"];
+    [request setValue: @"application/json" forHTTPHeaderField: @"Content-Type"];
+    [request setValue: [NSString stringWithFormat: @"%d", [requestData length]] forHTTPHeaderField: @"Content-Length"];
+    [request setHTTPBody: requestData];
+    
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: [self _operationQueue]
+                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
+                               NSDictionary *result = nil;
+                               callback(error, result);
+    }];
 
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(NSOperationQueue *)_operationQueue
+{
+    if(!_queue)
+        _queue = [[NSOperationQueue alloc] init], _queue.maxConcurrentOperationCount = 1;
+    
+    return _queue;
+}
+
 @end
