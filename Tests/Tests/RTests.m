@@ -95,7 +95,7 @@
 
 -(void)testArchivedProjectsRetrieval
 {
-    [_client projects: nil archived: YES withCallback: ^(NSError *error, id result) {
+    [_client projects: nil archived: NO withCallback: ^(NSError *error, id result) {
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertTrue([result isKindOfClass: [NSArray class]], @"Archived projects result is not an array");

@@ -17,8 +17,9 @@
 -(NSOperationQueue *)_operationQueue;
 
 -(void)_basicRetrievalWithDomain: (NSString *)domain
-                       parameters: (NSDictionary *)parameters
-                         callback: (void(^)(NSError *error, id result))callback;
+                        archived: (BOOL)yesNo
+                      parameters: (NSDictionary *)parameters
+                        callback: (void(^)(NSError *error, id result))callback;
 
 -(void)_callMethod: (NSString *)method
           withPath: (NSString *)path
@@ -94,35 +95,35 @@
 
 -(void)customers: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: yesNo ? @"customers/archived" : @"customers" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain:  @"customers" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)projects: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: yesNo ? @"projects/archived" : @"projects" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: @"projects" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: yesNo ? @"services/archived" : @"services" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: @"services" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)timeEntries: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: @"time_entries" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: @"time_entries" archived: NO parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)timeEntryBookmarks: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: @"bookmarks" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: @"bookmarks" archived: NO parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,7 +141,7 @@
 
 -(void)users: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: yesNo ? @"users/archived" : @"users" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: @"users" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -283,7 +284,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url
                                                            cachePolicy: NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval: 60.0];
-    
+
     if(data)
         requestData = [NSJSONSerialization dataWithJSONObject: data options: NSJSONWritingPrettyPrinted error: &error];
     
@@ -316,9 +317,11 @@
                            completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
                                
                                NSError *jsonError;
-                               id result = [NSJSONSerialization JSONObjectWithData: data
-                                                                             options: NSJSONReadingMutableContainers
-                                                                               error: &jsonError];
+                               id result = nil;
+                               if(result)
+                                   result = [NSJSONSerialization JSONObjectWithData: data
+                                                                            options: NSJSONReadingMutableContainers
+                                                                              error: &jsonError];
                                
                                if(jsonError)
                                {
@@ -334,21 +337,24 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)_basicRetrievalWithDomain: (NSString *)domain
+                        archived: (BOOL)yesNo
                       parameters: (NSDictionary *)parameters
                         callback: (void(^)(NSError *error, id result))callback;
 {
-    NSString *path = [NSString stringWithFormat: @"%@.json", domain];
+    NSMutableDictionary *dict = [parameters mutableCopy];
+    NSString *aId = dict[@"id"];
     
-    if(parameters[@"id"])
+    if(aId)
     {
-        path = [NSString stringWithFormat: @"%@/%@.json", domain, parameters[@"id"]];
-        NSMutableDictionary *dict = [parameters mutableCopy];
+        domain = [NSString stringWithFormat: @"%@/%@", domain, parameters[@"id"]];
         dict[@"id"] = nil;
         parameters = dict;
     }
+    else if(yesNo)
+        domain = [NSString stringWithFormat: @"%@/archived", domain];
     
     [self _callMethod: @"GET"
-             withPath: path
+             withPath: [NSString stringWithFormat: @"%@.json", domain]
            parameters: parameters
                  data: nil
              callback: callback];
