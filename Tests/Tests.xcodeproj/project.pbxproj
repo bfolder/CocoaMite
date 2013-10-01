@@ -15,6 +15,8 @@
 		60C3A53E17F9897C005F0EB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53D17F9897C005F0EB7 /* UIKit.framework */; };
 		60C3A54417F9897C005F0EB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60C3A54217F9897C005F0EB7 /* InfoPlist.strings */; };
 		60C3A54617F9897C005F0EB7 /* RTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3A54517F9897C005F0EB7 /* RTests.m */; };
+		60E8A58D17FB1711000CF936 /* CTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A58C17FB1711000CF936 /* CTests.m */; };
+		60E8A58F17FB17B1000CF936 /* DTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A58E17FB17B1000CF936 /* DTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		60C3A54517F9897C005F0EB7 /* RTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTests.m; sourceTree = "<group>"; };
 		60C3A54717F9897C005F0EB7 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60E44CF717FAB5D600BE57AF /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
+		60E8A58C17FB1711000CF936 /* CTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTests.m; sourceTree = "<group>"; };
+		60E8A58E17FB17B1000CF936 /* DTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				60E44CF717FAB5D600BE57AF /* Definitions.h */,
-				606D9C9517FB05FD0088351E /* UTests.m */,
+				60E8A58C17FB1711000CF936 /* CTests.m */,
 				60C3A54517F9897C005F0EB7 /* RTests.m */,
+				606D9C9517FB05FD0088351E /* UTests.m */,
+				60E8A58E17FB17B1000CF936 /* DTests.m */,
 				60C3A54017F9897C005F0EB7 /* Supporting Files */,
 			);
 			path = Tests;
@@ -182,8 +188,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E8A58F17FB17B1000CF936 /* DTests.m in Sources */,
 				606D9C9917FB070B0088351E /* NSString+Base64.m in Sources */,
 				606D9C9617FB05FD0088351E /* UTests.m in Sources */,
+				60E8A58D17FB1711000CF936 /* CTests.m in Sources */,
 				606D9C9417FAE5200088351E /* CocoaMite.m in Sources */,
 				60C3A54617F9897C005F0EB7 /* RTests.m in Sources */,
 			);
