@@ -65,27 +65,27 @@
 /**
  *
  */
--(void)customers: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)customers: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)projects: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)projects: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)services: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)services: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)timeEntries: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)timeEntries: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)timeEntryBookmarks: (NSDictionary *)filters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)timeEntryBookmarks: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
@@ -104,7 +104,7 @@
 /**
  *
  */
--(void)addProject (NSDictionary *)data withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)addProject: (NSDictionary *)data withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
@@ -128,23 +128,22 @@
 /**
  *
  */
--(void)updateCustomer: (NSInteger)customerId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)updateCustomer: (NSInteger)customerId withData: (NSDictionary *)data callback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)updateProject: (NSInteger)projectId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)updateProject: (NSInteger)projectId withData: (NSDictionary *)data callback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)updateService (NSInteger)serviceId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)updateService: (NSInteger)serviceId withData: (NSDictionary *)data callback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)updateTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
-
+-(void)updateTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data callback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 ///---------------------------------------------------------------------------------------
 /// @name Destroy
@@ -153,22 +152,22 @@
 /**
  *
  */
--(void)removeCustomer: (NSInteger)customerId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)removeCustomer: (NSInteger)customerId withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)removeProject: (NSInteger)projectId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)removeProject: (NSInteger)projectId withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)removeService: (NSInteger)serviceId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)removeService: (NSInteger)serviceId withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *
  */
--(void)removeTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data andCallback: (void (^)(NSError *error, NSDictionary *result))callback;
+-(void)removeTimeEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, NSDictionary *result))callback;
 
 /**
  *

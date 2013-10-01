@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CocoaMite.h"
 
 // Change this for your own tests!
 #define API_KEY @"xxx"

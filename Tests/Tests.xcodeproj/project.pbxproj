@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		606D9C8D17FAE3C40088351E /* CocoaMite.h in Resources */ = {isa = PBXBuildFile; fileRef = 606D9C8A17FAE3C40088351E /* CocoaMite.h */; };
+		606D9C8E17FAE3C40088351E /* CocoaMite.m in Resources */ = {isa = PBXBuildFile; fileRef = 606D9C8B17FAE3C40088351E /* CocoaMite.m */; };
 		60C3A53A17F9897C005F0EB7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53917F9897C005F0EB7 /* SenTestingKit.framework */; };
 		60C3A53C17F9897C005F0EB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53B17F9897C005F0EB7 /* Foundation.framework */; };
 		60C3A53E17F9897C005F0EB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53D17F9897C005F0EB7 /* UIKit.framework */; };
@@ -17,6 +19,8 @@
 /* Begin PBXFileReference section */
 		6056110817F9B2E900102BE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6056110A17F9B2EE00102BE4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		606D9C8A17FAE3C40088351E /* CocoaMite.h */ = {isa = PBXFileReference; lastKnownFileType = file; path = CocoaMite.h; sourceTree = "<group>"; };
+		606D9C8B17FAE3C40088351E /* CocoaMite.m */ = {isa = PBXFileReference; lastKnownFileType = file; path = CocoaMite.m; sourceTree = "<group>"; };
 		60C3A53617F9897C005F0EB7 /* iOS Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3A53917F9897C005F0EB7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		60C3A53B17F9897C005F0EB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -42,11 +46,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		606D9C8917FAE3A00088351E /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				606D9C8C17FAE3C40088351E /* CocoaMite */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		606D9C8C17FAE3C40088351E /* CocoaMite */ = {
+			isa = PBXGroup;
+			children = (
+				606D9C8A17FAE3C40088351E /* CocoaMite.h */,
+				606D9C8B17FAE3C40088351E /* CocoaMite.m */,
+			);
+			name = CocoaMite;
+			path = ../CocoaMite;
+			sourceTree = "<group>";
+		};
 		60C3A52B17F98955005F0EB7 = {
 			isa = PBXGroup;
 			children = (
 				60C3A53F17F9897C005F0EB7 /* Tests */,
 				60C3A53817F9897C005F0EB7 /* Frameworks */,
+				606D9C8917FAE3A00088351E /* Vendor */,
 				60C3A53717F9897C005F0EB7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,7 +164,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				606D9C8E17FAE3C40088351E /* CocoaMite.m in Resources */,
 				60C3A54417F9897C005F0EB7 /* InfoPlist.strings in Resources */,
+				606D9C8D17FAE3C40088351E /* CocoaMite.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
