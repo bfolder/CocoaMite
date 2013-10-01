@@ -16,5 +16,11 @@
       <FileRef
          location = "group:CocoaMite.m">
       </FileRef>
+      <FileRef
+         location = "group:NSString+Base64.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSString+Base64.m">
+      </FileRef>
    </Group>
 </Workspace>
