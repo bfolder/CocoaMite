@@ -73,10 +73,38 @@
 
 -(void)testProjectsRetrieval
 {
-    [_client projects: nil withCallback: ^(NSError *error, id result) {
+    [_client projects: nil archived: NO withCallback: ^(NSError *error, id result) {
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertTrue([result isKindOfClass: [NSArray class]], @"Projects result is not an array");
+        
+        if([result count] > 0)
+        {
+            NSString *firstKey = (NSString *)[result[0] allKeys][0];
+            STAssertTrue([firstKey isEqualToString: @"project"], @"Dictionaries should contain projects");
+        }
+        
+        _completed = YES;
+    }];
+    
+    while(!_completed);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)testArchivedProjectsRetrieval
+{
+    [_client projects: nil archived: YES withCallback: ^(NSError *error, id result) {
+        STAssertNil(error, @"No Errors should occur - Check connection or whatever");
+        STAssertNotNil(result, @"Call should have a result");
+        STAssertTrue([result isKindOfClass: [NSArray class]], @"Archived projects result is not an array");
+        
+        if([result count] > 0)
+        {
+            NSString *firstKey = (NSString *)[result[0] allKeys][0];
+            STAssertTrue([firstKey isEqualToString: @"project"], @"Dictionaries should contain projects");
+        }
         
         _completed = YES;
     }];
@@ -88,10 +116,16 @@
 
 -(void)testCustomersRetrieval
 {
-    [_client customers: nil withCallback: ^(NSError *error, id result) {
+    [_client customers: nil archived: NO withCallback: ^(NSError *error, id result) {
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertTrue([result isKindOfClass: [NSArray class]], @"Customers result is not an array");
+        
+        if([result count] > 0)
+        {
+            NSString *firstKey = (NSString *)[result[0] allKeys][0];
+            STAssertTrue([firstKey isEqualToString: @"customer"], @"Dictionaries should contain customers");
+        }
         
         _completed = YES;
     }];
@@ -103,10 +137,16 @@
 
 -(void)testServicesRetrieval
 {
-    [_client services: nil withCallback: ^(NSError *error, id result) {
+    [_client services: nil archived: NO withCallback: ^(NSError *error, id result) {
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertTrue([result isKindOfClass: [NSArray class]], @"Services result is not an array");
+        
+        if([result count] > 0)
+        {
+            NSString *firstKey = (NSString *)[result[0] allKeys][0];
+            STAssertTrue([firstKey isEqualToString: @"service"], @"Dictionaries should contain services");
+        }
         
         _completed = YES;
     }];
@@ -122,6 +162,33 @@
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertTrue([result isKindOfClass: [NSArray class]], @"Time Entries result is not an array");
+        
+        if([result count] > 0)
+        {
+            NSString *firstKey = (NSString *)[result[0] allKeys][0];
+            STAssertTrue([firstKey isEqualToString: @"time_entries"], @"Dictionaries should contain time entries");
+        }
+        
+        _completed = YES;
+    }];
+    
+    while(!_completed);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)testUsersRetrieval
+{
+    [_client users: nil archived: NO withCallback: ^(NSError *error, id result) {
+        STAssertNil(error, @"No Errors should occur - Check connection or whatever");
+        STAssertNotNil(result, @"Call should have a result");
+        STAssertTrue([result isKindOfClass: [NSArray class]], @"Users result is not an array");
+        
+        if([result count] > 0)
+        {
+            NSString *firstKey = (NSString *)[result[0] allKeys][0];
+            STAssertTrue([firstKey isEqualToString: @"user"], @"Dictionaries should contain users");
+        }
         
         _completed = YES;
     }];

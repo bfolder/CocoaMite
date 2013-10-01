@@ -87,6 +87,15 @@
 -(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
 
 /**
+ *  Retrieves all Users sorted by name.
+ *  This resource can be read by all users except time trackers. 
+ *  And, unlike other objects, users can only be read, not created or edited over the mite.api.
+ *
+ *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
+ */
+-(void)users: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
+
+/**
  *  Retrieves all time entries for all users, sorted in reverse chronological order ('date_at').
  *  A user of role time tracker can only access his own time entries.
  * 

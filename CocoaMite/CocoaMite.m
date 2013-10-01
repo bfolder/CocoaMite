@@ -94,21 +94,21 @@
 
 -(void)customers: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: @"customers" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: yesNo ? @"customers/archived" : @"customers" parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)projects: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: @"projects" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: yesNo ? @"projects/archived" : @"projects" parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
 {
-    [self _basicRetrievalWithDomain: @"services" parameters: parameters callback: callback];
+    [self _basicRetrievalWithDomain: yesNo ? @"services/archived" : @"services" parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,6 +134,13 @@
            parameters: nil
                  data: nil
              callback: callback];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)users: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
+{
+    [self _basicRetrievalWithDomain: yesNo ? @"users/archived" : @"users" parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
