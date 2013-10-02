@@ -6,7 +6,7 @@
 //
 
 #import "CocoaMite.h"
-#import "NSString+Base64.h"
+#import "AFHTTPRequestOperation.h"
 
 #define CocoaMiteErrorDomain @"CocoaMiteErrorDomain"
 #define CocoaMiteDefaultAgentName @"CocoaMite"
@@ -93,35 +93,35 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)customers: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
+-(void)customersWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain:  @"customers" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)projects: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
+-(void)projectsWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"projects" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
+-(void)servicesWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"services" archived: yesNo parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)timeEntries: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
+-(void)timeEntriesWithParameters: (NSDictionary *)parameters callback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"time_entries" archived: NO parameters: parameters callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)timeEntryBookmarks: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback
+-(void)timeEntryBookmarksWithParameters: (NSDictionary *)parameters callback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"bookmarks" archived: NO parameters: parameters callback: callback];
 }
@@ -139,7 +139,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)users: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback
+-(void)usersWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback
 {
     [self _basicRetrievalWithDomain: @"users" archived: yesNo parameters: parameters callback: callback];
 }
@@ -294,14 +294,12 @@
         return;
     }
     
+    NSURLCredential *credential = nil;
+    
     if(_apiKey)
         [request setValue: _apiKey forHTTPHeaderField: @"X-MiteApiKey"];
     else
-    {
-        NSString *credentials = [NSString stringWithFormat: @"%@:%@", _email, _password];
-        NSString *auth = [NSString stringWithFormat: @"Basic %@", [credentials base64String]];
-        [request setValue: auth forHTTPHeaderField: @"Authorization"];
-    }
+        credential = [[NSURLCredential alloc] initWithUser: _email password: _password persistence: NSURLCredentialPersistenceNone];
     
     if(requestData)
         [request setHTTPBody: requestData];
@@ -309,29 +307,30 @@
     [request setValue: [self _userAgent] forHTTPHeaderField: @"User-Agent"];
     [request setValue: @"application/json" forHTTPHeaderField: @"Accept"];
     [request setValue: @"application/json" forHTTPHeaderField: @"Content-Type"];
-    [request setValue: [NSString stringWithFormat: @"%d", [requestData length]] forHTTPHeaderField: @"Content-Length"];
+    [request setValue:@"utf-8" forHTTPHeaderField: @"Accept-Charset"];
+    [request setValue: [NSString stringWithFormat: @"%lu", (unsigned long)[requestData length]] forHTTPHeaderField: @"Content-Length"];
     [request setHTTPMethod: method];
     
-    [NSURLConnection sendAsynchronousRequest: request
-                                       queue: [self _operationQueue]
-                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
-                               
-                               NSError *jsonError;
-                               id result = nil;
-                               if(result)
-                                   result = [NSJSONSerialization JSONObjectWithData: data
-                                                                            options: NSJSONReadingMutableContainers
-                                                                              error: &jsonError];
-                               
-                               if(jsonError)
-                               {
-                                   NSString *errorString = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-                                   error = [NSError errorWithDomain: CocoaMiteErrorDomain code: 401 userInfo: @{@"message": errorString}];
-                               }
-                               
-                               callback(error, result);
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest: request];
+    if(credential)
+        [operation setCredential: credential];
+    
+    [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData: operation.responseData options: NSJSONReadingAllowFragments error: &error];
+        
+        if(error)
+        {
+            NSString *errorString = [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding];
+            error = [NSError errorWithDomain: CocoaMiteErrorDomain code: 401 userInfo: @{@"message": errorString}];
+        }
+        
+        callback(error, JSON);
+    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+        callback(error, [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding]);
     }];
-
+    
+    [[self _operationQueue] addOperation: operation];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -374,10 +373,10 @@
 
 -(NSString *)_userAgent
 {
-    if(_agentName)
-        return _agentName;
+    if(!_agentName)
+        _agentName = CocoaMiteDefaultAgentName;
     
-    return CocoaMiteDefaultAgentName;
+    return _agentName;
 }
 
 @end

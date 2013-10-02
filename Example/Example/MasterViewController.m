@@ -7,6 +7,7 @@
 //
 
 #import "MasterViewController.h"
+#import "CocoaMite.h"
 
 #import "DetailViewController.h"
 
@@ -30,6 +31,16 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    CocoaMite *client = [[CocoaMite alloc] initWithApiKey: @"52c8f106f2e096ac" subdomain: @"comiteco"];
+    
+    [client projectsWithParameters: nil archived: NO callback: ^(NSError *error, id result) {
+        NSLog(@"%@", result);
+    }];
+    
+    [client currentAccountWithCallback:^(NSError *error, id result) {
+        NSLog(@"%@", result);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

@@ -68,7 +68,7 @@
  *
  *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)customers: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
+-(void)customersWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback;
 
 /**
  *  Retrieves all Projects sorted by name.
@@ -76,7 +76,7 @@
  *
  *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)projects: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
+-(void)projectsWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback;
 
 /**
  *  Retrieves all Services sorted by name.
@@ -84,7 +84,7 @@
  *
  *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)services: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
+-(void)servicesWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback;
 
 /**
  *  Retrieves all Users sorted by name.
@@ -93,7 +93,7 @@
  *
  *  You can limit the output by using the parameters 'id', 'name', 'limit' or 'page'.
  */
--(void)users: (NSDictionary *)parameters archived: (BOOL)yesNo withCallback: (void (^)(NSError *error, id result))callback;
+-(void)usersWithParameters: (NSDictionary *)parameters archived: (BOOL)yesNo callback: (void (^)(NSError *error, id result))callback;
 
 /**
  *  Retrieves all time entries for all users, sorted in reverse chronological order ('date_at').
@@ -114,14 +114,14 @@
  *
  *  They can also grouped by the parameter 'grouped_by' with values 'customer', 'project', 'service', 'user', 'day', 'week', 'month' or 'year'.
  */
--(void)timeEntries: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
+-(void)timeEntriesWithParameters: (NSDictionary *)parameters callback: (void (^)(NSError *error, id result))callback;
 
 /**
  *  Retrieves all bookmarks, sorted by name.
  *  
  *  The parameter 'id' retrieves a single bookmark
  */
--(void)timeEntryBookmarks: (NSDictionary *)parameters withCallback: (void (^)(NSError *error, id result))callback;
+-(void)timeEntryBookmarksWithParameters: (NSDictionary *)parameters callback: (void (^)(NSError *error, id result))callback;
 
 /**
  *  Retrieves the current time tracker.
