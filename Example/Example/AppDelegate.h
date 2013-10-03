@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class CocoaMite;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic, readonly) CocoaMite *client;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

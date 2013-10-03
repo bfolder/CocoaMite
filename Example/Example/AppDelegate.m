@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "CocoaMite.h"
 
 @implementation AppDelegate
+{
+    CocoaMite *_client;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,6 +45,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(CocoaMite *)client
+{
+    if(!_client)
+        _client = [[CocoaMite alloc] initWithApiKey: API_KEY subdomain: SUBDOMAIN];
+    
+    return _client;
 }
 
 @end

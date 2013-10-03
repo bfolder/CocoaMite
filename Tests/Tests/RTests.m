@@ -6,12 +6,12 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "Definitions.h"
+#import "Defines.h"
 
 @interface RTests : SenTestCase
 {
     CocoaMite *_client;
-    __block BOOL _done;
+    BOOL __block _completed;
 }
 
 @end
@@ -47,12 +47,12 @@
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"account"], @"Account dictionary missing");
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,12 +64,12 @@
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"user"], @"User dictionary missing");
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,12 +87,12 @@
             STAssertTrue([firstKey isEqualToString: @"project"], @"Dictionaries should contain projects");
         }
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 
@@ -111,12 +111,12 @@
             STAssertTrue([firstKey isEqualToString: @"project"], @"Dictionaries should contain projects");
         }
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,12 +134,12 @@
             STAssertTrue([firstKey isEqualToString: @"customer"], @"Dictionaries should contain customers");
         }
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -157,12 +157,12 @@
             STAssertTrue([firstKey isEqualToString: @"service"], @"Dictionaries should contain services");
         }
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,15 +177,15 @@
         if([result count] > 0)
         {
             NSString *firstKey = (NSString *)[result[0] allKeys][0];
-            STAssertTrue([firstKey isEqualToString: @"time_entries"], @"Dictionaries should contain time entries");
+            STAssertTrue([firstKey isEqualToString: @"time_entry"], @"Dictionaries should contain time entries");
         }
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -203,12 +203,12 @@
             STAssertTrue([firstKey isEqualToString: @"user"], @"Dictionaries should contain users");
         }
         
-        _done = YES;
+        _completed = YES;
     }];
     
-    while(!_done)
+    while(!_completed)
         [[NSRunLoop currentRunLoop] runMode: NSDefaultRunLoopMode
-                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow:10]];
+                                 beforeDate: [NSDate dateWithTimeIntervalSinceNow: 10]];
 }
 
 @end

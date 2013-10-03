@@ -6,7 +6,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "Definitions.h"
+#import "Defines.h"
 
 @interface UTests : SenTestCase
 {

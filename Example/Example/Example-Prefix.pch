@@ -14,3 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define API_KEY @"52c8f106f2e096ac"
+#define SUBDOMAIN @"comiteco"

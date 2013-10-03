@@ -154,7 +154,7 @@
     [self _callMethod: @"POST"
              withPath: @"customers.json"
            parameters: nil
-                 data: data
+                 data: @{@"customer": data}
              callback: callback];
 }
 
@@ -165,7 +165,7 @@
     [self _callMethod: @"POST"
              withPath: @"projects.json"
            parameters: nil
-                 data: data
+                 data: @{@"project": data}
              callback: callback];
 }
 
@@ -176,7 +176,7 @@
     [self _callMethod: @"POST"
              withPath: @"services.json"
            parameters: nil
-                 data: data
+                 data: @{@"service": data}
              callback: callback];
 }
 
@@ -187,7 +187,7 @@
     [self _callMethod: @"POST"
              withPath: @"time_entries.json"
            parameters: nil
-                 data: data
+                 data: @{@"time_entry": data}
              callback: callback];
 }
 
@@ -195,7 +195,11 @@
 
 -(void)startTrackerOnEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"PUT"
+             withPath: [NSString stringWithFormat: @"tracker/%i.json", timeEntryId]
+           parameters: nil
+                 data: nil
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -317,12 +321,13 @@
     
     [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
-        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData: operation.responseData options: NSJSONReadingAllowFragments error: &error];
+        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingMutableContainers];
+        NSDictionary *JSON = [serializer responseObjectForResponse: operation.response data: operation.responseData error: &error];
         
         if(error)
         {
             NSString *errorString = [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding];
-            error = [NSError errorWithDomain: CocoaMiteErrorDomain code: 401 userInfo: @{@"message": errorString}];
+            error = [NSError errorWithDomain: CocoaMiteErrorDomain code: 0 userInfo: @{@"message": errorString}];
         }
         
         callback(error, JSON);
