@@ -394,7 +394,7 @@
     if(aId)
     {
         domain = [NSString stringWithFormat: @"%@/%@", domain, parameters[@"id"]];
-        dict[@"id"] = nil;
+        [dict removeObjectForKey: @"id"];
         parameters = dict;
     }
     else if(yesNo)

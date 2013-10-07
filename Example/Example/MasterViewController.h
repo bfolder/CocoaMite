@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class CocoaMite;
-
 @interface MasterViewController : UITableViewController
 
 @end
