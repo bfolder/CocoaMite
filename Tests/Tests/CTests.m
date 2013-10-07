@@ -72,6 +72,8 @@
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"customer"], @"Customer dictionary missing");
         _createdCustomerId = result[@"customer"][@"id"];
+        NSString *name = (NSString *)result[@"customer"][@"name"];
+        STAssertTrue([name isEqualToString: @"Customer 1"], @"Customer has no proper name");
 #pragma clang diagnostic pop
         
         _completed = YES;
@@ -93,6 +95,8 @@
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"service"], @"Service dictionary missing");
         _createdServiceId = result[@"service"][@"id"];
+        NSString *name = (NSString *)result[@"service"][@"name"];
+        STAssertTrue([name isEqualToString: @"Service 1"], @"Service has no proper name");
 #pragma clang diagnostic pop
         
         _completed = YES;
@@ -114,6 +118,8 @@
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"project"], @"Project dictionary missing");
         _createdProjectId = result[@"project"][@"id"];
+        NSString *name = (NSString *)result[@"project"][@"name"];
+        STAssertTrue([name isEqualToString: @"Project 1"], @"Project has no proper name");
 #pragma clang diagnostic pop
         
         _completed = YES;
@@ -135,6 +141,10 @@
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"time_entry"], @"TimeEntry dictionary missing");
         _createdTimeEntryId = result[@"time_entry"][@"id"];
+        NSNumber *minutes = (NSNumber *)result[@"time_entry"][@"minutes"];
+        NSString *note = (NSString *)result[@"time_entry"][@"note"];
+        STAssertEquals([minutes integerValue], 55, @"Time Entry has no proper duration");
+        STAssertTrue([note isEqualToString: @"Entry 1"], @"Time Entry has no proper note");
 #pragma clang diagnostic pop
         _completed = YES;
     }];

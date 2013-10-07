@@ -209,28 +209,44 @@
 
 -(void)updateCustomer: (NSInteger)customerId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"PUT"
+             withPath: [NSString stringWithFormat: @"customers/%i.json", customerId]
+           parameters: nil
+                 data: data
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)updateProject: (NSInteger)projectId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"PUT"
+             withPath: [NSString stringWithFormat: @"projects/%i.json", projectId]
+           parameters: nil
+                 data: data
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)updateService: (NSInteger)serviceId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"PUT"
+             withPath: [NSString stringWithFormat: @"services/%i.json", serviceId]
+           parameters: nil
+                 data: data
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)updateTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"PUT"
+             withPath: [NSString stringWithFormat: @"time_entries/%i.json", timeEntryId]
+           parameters: nil
+                 data: data
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
