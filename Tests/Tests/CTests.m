@@ -12,6 +12,13 @@
 {
     CocoaMite *_client;
     BOOL __block _completed;
+    
+    // Getting rid of test data
+    NSString *_createdProjectId;
+    NSString *_createdCustomerId;
+    NSString *_createdServiceId;
+    NSString *_createdTimeEntryId;
+    NSString *_createdSTimeEntryId;
 }
 
 @end
@@ -36,6 +43,21 @@
 {
     [super tearDown];
     
+    if(_createdProjectId)
+        [_client removeProject: [_createdProjectId integerValue] withCallback: nil];
+    
+    if(_createdServiceId)
+        [_client removeService: [_createdServiceId integerValue] withCallback: nil];
+    
+    if(_createdCustomerId)
+        [_client removeCustomer: [_createdCustomerId integerValue] withCallback: nil];
+    
+    if(_createdSTimeEntryId)
+        [_client removeTimeEntry: [_createdSTimeEntryId integerValue] withCallback: nil];
+    
+    if(_createdTimeEntryId)
+        [_client removeTimeEntry: [_createdTimeEntryId integerValue] withCallback: nil];
+        
     _client = nil;
 }
 
@@ -49,6 +71,7 @@
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"customer"], @"Customer dictionary missing");
+        _createdCustomerId = result[@"customer"][@"id"];
 #pragma clang diagnostic pop
         
         _completed = YES;
@@ -69,6 +92,7 @@
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"service"], @"Service dictionary missing");
+        _createdServiceId = result[@"service"][@"id"];
 #pragma clang diagnostic pop
         
         _completed = YES;
@@ -89,6 +113,7 @@
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"project"], @"Project dictionary missing");
+        _createdProjectId = result[@"project"][@"id"];
 #pragma clang diagnostic pop
         
         _completed = YES;
@@ -109,6 +134,7 @@
         STAssertNil(error, @"No Errors should occur - Check connection or whatever");
         STAssertNotNil(result, @"Call should have a result");
         STAssertNotNil(result[@"time_entry"], @"TimeEntry dictionary missing");
+        _createdTimeEntryId = result[@"time_entry"][@"id"];
 #pragma clang diagnostic pop
         _completed = YES;
     }];
@@ -137,6 +163,7 @@
             STAssertNotNil(result, @"Call should have a result");
             STAssertNotNil(result[@"tracker"], @"Tracker dictionary missing");
             
+            _createdSTimeEntryId = result[@"tracking_time_entry"][@"id"];
             _completed = YES;
         }];
     }];

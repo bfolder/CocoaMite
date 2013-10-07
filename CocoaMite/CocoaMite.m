@@ -355,9 +355,11 @@
             error = [NSError errorWithDomain: CocoaMiteErrorDomain code: code userInfo: @{@"message": errorString}];
         }
         
-        callback(error, JSON);
+        if(callback)
+            callback(error, JSON);
     } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(error, [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding]);
+        if(callback)
+            callback(error, [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding]);
     }];
     
     [[self _operationQueue] addOperation: operation];

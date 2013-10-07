@@ -193,22 +193,22 @@
 ///---------------------------------------------------------------------------------------
 
 /**
- *
+ *  Updates the specific customer with the given data.
  */
 -(void)updateCustomer: (NSInteger)customerId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback;
 
 /**
- *
+ *  Updates the specific project with the given data.
  */
 -(void)updateProject: (NSInteger)projectId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback;
 
 /**
- *
+ *  Updates the specific service with the given data.
  */
 -(void)updateService: (NSInteger)serviceId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback;
 
 /**
- *
+ *  Updates the specific time entry with the given data.
  */
 -(void)updateTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback;
 
