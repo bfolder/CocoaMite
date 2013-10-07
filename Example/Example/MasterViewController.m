@@ -82,7 +82,7 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDictionary *object = (NSDictionary *)[_objects objectAtIndex: indexPath.row];
-        NSUInteger detailId = [object[@"project"][@"id"] intValue];
+        NSUInteger detailId = [object[@"project"][@"id"] integerValue];
         [[segue destinationViewController] setDetailId: detailId];
         
     }

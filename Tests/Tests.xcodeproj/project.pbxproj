@@ -28,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		602F7BA718003E1700F2E0B7 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		604F30D717FC19E500ADF66E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		604F30D917FC19EA00ADF66E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		6056110817F9B2E900102BE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,7 +63,6 @@
 		60D23F3417FC2C6000F009D4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		60D23F3517FC2C6000F009D4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		60D23F3617FC2C6000F009D4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		60E44CF717FAB5D600BE57AF /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		60E8A58C17FB1711000CF936 /* CTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTests.m; sourceTree = "<group>"; };
 		60E8A58E17FB17B1000CF936 /* DTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +135,7 @@
 		60C3A53F17F9897C005F0EB7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				60E44CF717FAB5D600BE57AF /* Definitions.h */,
+				602F7BA718003E1700F2E0B7 /* Defines.h */,
 				60E8A58C17FB1711000CF936 /* CTests.m */,
 				60C3A54517F9897C005F0EB7 /* RTests.m */,
 				606D9C9517FB05FD0088351E /* UTests.m */,

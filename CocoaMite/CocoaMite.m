@@ -240,35 +240,55 @@
 
 -(void)removeCustomer: (NSInteger)customerId withCallback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"DELETE"
+             withPath: [NSString stringWithFormat: @"customers/%i.json", customerId]
+           parameters: nil
+                 data: nil
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)removeProject: (NSInteger)projectId withCallback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"DELETE"
+             withPath: [NSString stringWithFormat: @"projects/%i.json", projectId]
+           parameters: nil
+                 data: nil
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)removeService: (NSInteger)serviceId withCallback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"DELETE"
+             withPath: [NSString stringWithFormat: @"services/%i.json", serviceId]
+           parameters: nil
+                 data: nil
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)removeTimeEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"DELETE"
+             withPath: [NSString stringWithFormat: @"time_entries/%i.json", timeEntryId]
+           parameters: nil
+                 data: nil
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)stopTracker: (NSInteger)trackerId withCallback: (void (^)(NSError *error, id result))callback
+-(void)stopTrackerOnEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, id result))callback
 {
-    
+    [self _callMethod: @"DELETE"
+             withPath: [NSString stringWithFormat: @"tracker/%i.json", timeEntryId]
+           parameters: nil
+                 data: nil
+             callback: callback];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -326,8 +346,13 @@
         
         if(error)
         {
+            NSInteger code = 0;
+            
+            if(operation.response)
+                code = operation.response.statusCode;
+            
             NSString *errorString = [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding];
-            error = [NSError errorWithDomain: CocoaMiteErrorDomain code: 0 userInfo: @{@"message": errorString}];
+            error = [NSError errorWithDomain: CocoaMiteErrorDomain code: code userInfo: @{@"message": errorString}];
         }
         
         callback(error, JSON);

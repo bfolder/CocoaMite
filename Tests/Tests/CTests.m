@@ -130,7 +130,7 @@
         STAssertNotNil(result[@"time_entry"], @"TimeEntry dictionary missing");
 #pragma clang diagnostic pop
         
-        NSInteger anId = [result[@"time_entry"][@"id"] intValue];
+        NSInteger anId = [result[@"time_entry"][@"id"] integerValue];
         
         [_client startTrackerOnEntry: anId withCallback: ^(NSError *error, id result) {
             STAssertNil(error, @"No Errors should occur - Check connection or whatever");
