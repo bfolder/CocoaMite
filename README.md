@@ -4,6 +4,7 @@ CocoaMite is an Objective-C wrapper around the [mite api](http://mite.yo.lk/api/
 [mite](http://mite.yo.lk/ "mite") is "sleek time tracking for teams & freelancers". 
 
 Compatibility: iOS 5+ / Mac OS X 10.7+
+
 ---
 ### Installation
 Installing CocoaMite is pretty straight-forward if you have CocoaPods installed.
