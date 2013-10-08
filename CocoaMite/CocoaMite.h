@@ -32,7 +32,7 @@
  *  Subdomain - Returns nil if none is set.
  */
 @property (nonatomic, readonly, strong) NSString *subdomain;
-
+    
 /**
  *  User agent name - Defaults to 'CocoaMite'.
  */
