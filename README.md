@@ -17,7 +17,7 @@ pod 'CocoaMite', '~> 0.0.1'
 
 2. Include the header:
 
- `#import "CocoaMite.h"
+ `#import "CocoaMite.h"`
 
 3. Initialize and setup the CocoaMite client, e.g.:
 
