@@ -1,6 +1,6 @@
 ## Readme
 
-CocoaMite is an Objective-C wrapper around the [mite API](http://mite.yo.lk/api/ "mite API").
+CocoaMite is an Objective-C wrapper around the [mite api](http://mite.yo.lk/api/ "mite api").
 [mite](http://mite.yo.lk/ "mite") is 'sleek time tracking for teams & freelancers'. 
 
 *Compatibility: iOS 5+ / Mac OS X 10.7+*
@@ -26,7 +26,7 @@ Installing CocoaMite is pretty straight-forward if you have CocoaPods installed.
 
 ### Usage
 
-As mentioned at the beginning CocoaMite is just a wrapper around the public REST API. Take a look at the header file to get an idea about what the wrapper is capable of. Most of the comments are derived from the mite API Documentation. 
+As mentioned at the beginning CocoaMite is just a wrapper around the public REST api. Take a look at the header file to get an idea about what the wrapper is capable of. Most of the comments are derived from the mite API Documentation. 
 
 ### TODOs (10/8/13)
 
