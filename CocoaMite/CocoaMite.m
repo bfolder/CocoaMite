@@ -196,7 +196,7 @@
 -(void)startTrackerOnEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"PUT"
-             withPath: [NSString stringWithFormat: @"tracker/%i.json", timeEntryId]
+             withPath: [NSString stringWithFormat: @"tracker/%li.json", (long)timeEntryId]
            parameters: nil
                  data: nil
              callback: callback];
@@ -210,7 +210,7 @@
 -(void)updateCustomer: (NSInteger)customerId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"PUT"
-             withPath: [NSString stringWithFormat: @"customers/%i.json", customerId]
+             withPath: [NSString stringWithFormat: @"customers/%li.json", (long)customerId]
            parameters: nil
                  data: data
              callback: callback];
@@ -221,7 +221,7 @@
 -(void)updateProject: (NSInteger)projectId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"PUT"
-             withPath: [NSString stringWithFormat: @"projects/%i.json", projectId]
+             withPath: [NSString stringWithFormat: @"projects/%li.json", (long)projectId]
            parameters: nil
                  data: data
              callback: callback];
@@ -232,7 +232,7 @@
 -(void)updateService: (NSInteger)serviceId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"PUT"
-             withPath: [NSString stringWithFormat: @"services/%i.json", serviceId]
+             withPath: [NSString stringWithFormat: @"services/%li.json", (long)serviceId]
            parameters: nil
                  data: data
              callback: callback];
@@ -243,7 +243,7 @@
 -(void)updateTimeEntry: (NSInteger)timeEntryId withData: (NSDictionary *)data callback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"PUT"
-             withPath: [NSString stringWithFormat: @"time_entries/%i.json", timeEntryId]
+             withPath: [NSString stringWithFormat: @"time_entries/%li.json", (long)timeEntryId]
            parameters: nil
                  data: data
              callback: callback];
@@ -257,7 +257,7 @@
 -(void)removeCustomer: (NSInteger)customerId withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"DELETE"
-             withPath: [NSString stringWithFormat: @"customers/%i.json", customerId]
+             withPath: [NSString stringWithFormat: @"customers/%li.json", (long)customerId]
            parameters: nil
                  data: nil
              callback: callback];
@@ -268,7 +268,7 @@
 -(void)removeProject: (NSInteger)projectId withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"DELETE"
-             withPath: [NSString stringWithFormat: @"projects/%i.json", projectId]
+             withPath: [NSString stringWithFormat: @"projects/%li.json", (long)projectId]
            parameters: nil
                  data: nil
              callback: callback];
@@ -290,7 +290,7 @@
 -(void)removeTimeEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"DELETE"
-             withPath: [NSString stringWithFormat: @"time_entries/%i.json", timeEntryId]
+             withPath: [NSString stringWithFormat: @"time_entries/%li.json", (long)timeEntryId]
            parameters: nil
                  data: nil
              callback: callback];
@@ -301,7 +301,7 @@
 -(void)stopTrackerOnEntry: (NSInteger)timeEntryId withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"DELETE"
-             withPath: [NSString stringWithFormat: @"tracker/%i.json", timeEntryId]
+             withPath: [NSString stringWithFormat: @"tracker/%li.json", (long)timeEntryId]
            parameters: nil
                  data: nil
              callback: callback];
