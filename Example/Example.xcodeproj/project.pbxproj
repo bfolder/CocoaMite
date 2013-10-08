@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		604F307617FC14B900ADF66E /* CocoaMite.m in Sources */ = {isa = PBXBuildFile; fileRef = 604F306A17FC14B900ADF66E /* CocoaMite.m */; };
 		60C7CDB517F9867200F49F86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7CDB417F9867200F49F86 /* Foundation.framework */; };
 		60C7CDB717F9867200F49F86 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7CDB617F9867200F49F86 /* CoreGraphics.framework */; };
 		60C7CDB917F9867200F49F86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7CDB817F9867200F49F86 /* UIKit.framework */; };
@@ -20,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		604F306917FC14B900ADF66E /* CocoaMite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaMite.h; sourceTree = "<group>"; };
+		604F306A17FC14B900ADF66E /* CocoaMite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaMite.m; sourceTree = "<group>"; };
+		604F30D317FC198300ADF66E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		604F30D517FC198D00ADF66E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		60C7CDB117F9867200F49F86 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C7CDB417F9867200F49F86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		60C7CDB617F9867200F49F86 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +58,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		604F305417FC14B800ADF66E /* CocoaMite */ = {
+			isa = PBXGroup;
+			children = (
+				604F306917FC14B900ADF66E /* CocoaMite.h */,
+				604F306A17FC14B900ADF66E /* CocoaMite.m */,
+			);
+			name = CocoaMite;
+			path = ../../CocoaMite;
+			sourceTree = "<group>";
+		};
 		60C7CDA817F9867200F49F86 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +88,8 @@
 		60C7CDB317F9867200F49F86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				604F30D517FC198D00ADF66E /* MobileCoreServices.framework */,
+				604F30D317FC198300ADF66E /* SystemConfiguration.framework */,
 				60C7CDB417F9867200F49F86 /* Foundation.framework */,
 				60C7CDB617F9867200F49F86 /* CoreGraphics.framework */,
 				60C7CDB817F9867200F49F86 /* UIKit.framework */,
@@ -84,6 +101,7 @@
 		60C7CDBA17F9867200F49F86 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				604F305417FC14B800ADF66E /* CocoaMite */,
 				60C7CDC317F9867200F49F86 /* AppDelegate.h */,
 				60C7CDC417F9867200F49F86 /* AppDelegate.m */,
 				60C7CDC617F9867200F49F86 /* Main.storyboard */,
@@ -173,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604F307617FC14B900ADF66E /* CocoaMite.m in Sources */,
 				60C7CDC517F9867200F49F86 /* AppDelegate.m in Sources */,
 				60C7CDCB17F9867200F49F86 /* MasterViewController.m in Sources */,
 				60C7CDC117F9867200F49F86 /* main.m in Sources */,
@@ -282,6 +301,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -295,6 +315,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

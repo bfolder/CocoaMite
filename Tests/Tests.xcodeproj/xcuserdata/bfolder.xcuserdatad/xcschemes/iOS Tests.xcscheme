@@ -22,6 +22,16 @@
                ReferencedContainer = "container:Tests.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6056111E17F9BF1100102BE4"
+               BuildableName = "iOS Tests copy.octest"
+               BlueprintName = "Mac Tests"
+               ReferencedContainer = "container:Tests.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

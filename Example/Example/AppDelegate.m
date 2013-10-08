@@ -2,13 +2,17 @@
 //  AppDelegate.m
 //  Example
 //
-//  Created by Heiko Dreyer on 30.09.13.
+//  Created by Heiko Dreyer on 09/30/13.
 //  Copyright (c) 2013 boxedfolder.com. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "CocoaMite.h"
 
 @implementation AppDelegate
+{
+    CocoaMite *_client;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,6 +45,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(CocoaMite *)client
+{
+    if(!_client)
+        _client = [[CocoaMite alloc] initWithApiKey: API_KEY subdomain: SUBDOMAIN];
+    
+    return _client;
 }
 
 @end

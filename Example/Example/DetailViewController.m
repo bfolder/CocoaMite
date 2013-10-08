@@ -2,50 +2,51 @@
 //  DetailViewController.m
 //  Example
 //
-//  Created by Heiko Dreyer on 30.09.13.
+//  Created by Heiko Dreyer on 09/30/13.
 //  Copyright (c) 2013 boxedfolder.com. All rights reserved.
 //
 
+#import "CocoaMite.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 @interface DetailViewController ()
+
 - (void)configureView;
+
 @end
 
 @implementation DetailViewController
+{
+    CocoaMite *_client;
+}
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+
+-(void)configureView
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
+    _client = ((AppDelegate *)[UIApplication sharedApplication].delegate).client;
+    
+    [_client projectsWithParameters: @{@"id": [NSNumber numberWithInt: _detailId]} archived: NO callback: ^(NSError *error, id result) {
+        if(!error)
+        {
+            result = result[@"project"];
+            _detailDescriptionLabel.text = [NSString stringWithFormat: @"Name: %@ - Created At: %@ - Id: %@", result[@"name"], result[@"created_at"], result[@"id"]];
+        }
+    }];
+
 }
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
-
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -2,7 +2,7 @@
 //  DetailViewController.h
 //  Example
 //
-//  Created by Heiko Dreyer on 30.09.13.
+//  Created by Heiko Dreyer on 09/30/13.
 //  Copyright (c) 2013 boxedfolder.com. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
-
+@property (assign, nonatomic) NSInteger detailId;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
 @end
