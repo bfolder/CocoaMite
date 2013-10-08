@@ -1,7 +1,7 @@
 ## Readme
 
 CocoaMite is an Objective-C wrapper around the [mite api](http://mite.yo.lk/api/ "mite api").
-[mite](http://mite.yo.lk/ "mite") is 'sleek time tracking for teams & freelancers'. 
+[mite](http://mite.yo.lk/ "mite") is "sleek time tracking for teams & freelancers". 
 
 *Compatibility: iOS 5+ / Mac OS X 10.7+*
 ---
@@ -10,18 +10,18 @@ Installing CocoaMite is pretty straight-forward if you have CocoaPods installed.
 
 1. Add the CocoaMite dependency to your podfile:
 
-		```Ruby
+```Ruby
     pod 'CocoaMite', '~> 0.0.1'
-    ```
+```
 
 2. Include the header:
 
- `#import "CocoaMite.h"
+`#import "CocoaMite.h"`
 
 3. Initialize and setup the CocoaMite client, e.g.:
 
-``Objective-c
-`CocoaMite *client = [[CocoaMite alloc] initWithApiKey: @"YOUR_KEY" subdomain: @"SUBDOMAIN"]
+```Objective-c
+	CocoaMite *client = [[CocoaMite alloc] initWithApiKey: @"YOUR_KEY" subdomain: @"SUBDOMAIN"]
 ```
 
 ### Usage

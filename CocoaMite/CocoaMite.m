@@ -279,7 +279,7 @@
 -(void)removeService: (NSInteger)serviceId withCallback: (void (^)(NSError *error, id result))callback
 {
     [self _callMethod: @"DELETE"
-             withPath: [NSString stringWithFormat: @"services/%i.json", serviceId]
+             withPath: [NSString stringWithFormat: @"services/%li.json", (long)serviceId]
            parameters: nil
                  data: nil
              callback: callback];
