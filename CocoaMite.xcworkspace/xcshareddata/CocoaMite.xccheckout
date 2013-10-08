@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EBCD2233-4F7F-45C8-9CA9-9E0EC0158253</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CocoaMite</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</key>
+		<string>https://github.com/bfolder/CocoaMite.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CocoaMite.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bfolder/CocoaMite.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CocoaMite</string>
+		</dict>
+	</array>
+</dict>
+</plist>
