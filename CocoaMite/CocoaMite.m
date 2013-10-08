@@ -357,11 +357,10 @@
     
     [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
-        /*
-        AFJSONRequestSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingMutableContainers];
-        NSDictionary *JSON = [serializer responseObjectForResponse: operation.response data: operation.responseData error: &error];*/
+        NSDictionary *JSON = nil;
         
-        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData: operation.responseData options:NSJSONReadingMutableContainers error: &error];
+        if(operation.responseData)
+            JSON = [NSJSONSerialization JSONObjectWithData: operation.responseData options:NSJSONReadingMutableContainers error: &error];
         
         if(error)
         {
@@ -372,6 +371,10 @@
             
             NSString *errorString = [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding];
             error = [NSError errorWithDomain: CocoaMiteErrorDomain code: code userInfo: @{@"message": errorString}];
+            
+            // No errors if we code code 200
+            if(code == 200)
+                error = nil;
         }
         
         if(callback)

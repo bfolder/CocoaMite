@@ -9,5 +9,5 @@
 #import "CocoaMite.h"
 
 // Change this for your own tests!
-#define API_KEY @"xxx"
-#define SUBDOMAIN @"xxx"
+#define API_KEY @"YOUR_API_KEY"
+#define SUBDOMAIN @"YOUR_SUBDOMAIN"
