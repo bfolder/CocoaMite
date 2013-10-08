@@ -357,8 +357,11 @@
     
     [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
-        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingMutableContainers];
-        NSDictionary *JSON = [serializer responseObjectForResponse: operation.response data: operation.responseData error: &error];
+        /*
+        AFJSONRequestSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingMutableContainers];
+        NSDictionary *JSON = [serializer responseObjectForResponse: operation.response data: operation.responseData error: &error];*/
+        
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData: operation.responseData options:NSJSONReadingMutableContainers error: &error];
         
         if(error)
         {
