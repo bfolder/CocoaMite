@@ -15,5 +15,5 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#define API_KEY @"52c8f106f2e096ac"
-#define SUBDOMAIN @"comiteco"
+#define API_KEY @"YOUR_KEY"
+#define SUBDOMAIN @"YOUR_DOMAIN"
