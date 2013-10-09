@@ -10,17 +10,17 @@ Compatibility: iOS 5+ / Mac OS X 10.7+
 
 Installing CocoaMite is pretty straight-forward if you have CocoaPods installed.
 
-1.Add the CocoaMite dependency to your podfile:
+Step 1: Add the CocoaMite dependency to your podfile:
 
 ```Ruby
 pod 'CocoaMite', :podspec => 'https://raw.github.com/bfolder/CocoaMite/master/CocoaMite.podspec'
 ```
 
-2.Include the header:
+Step 2: Include the header:
 
 `#import "CocoaMite.h"`
 
-3.Initialize and setup the CocoaMite client, e.g.:
+Step 3: Initialize and setup the CocoaMite client, e.g.:
 
 ```objc
 CocoaMite *client = [[CocoaMite alloc] initWithApiKey: @"YOUR_KEY" subdomain: @"SUBDOMAIN"]
