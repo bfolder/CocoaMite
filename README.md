@@ -20,10 +20,10 @@ Step 2: Include the header:
 
 `#import "CocoaMite.h"`
 
-Step 3: Initialize and setup the CocoaMite client, e.g.:
+Step 3: Initialize and setup the CocoaMite client:
 
 ```objc
-CocoaMite *client = [[CocoaMite alloc] initWithApiKey: @"YOUR_KEY" subdomain: @"SUBDOMAIN"]
+CocoaMite *client = [[CocoaMite alloc] initWithApiKey: @"YOUR_KEY" subdomain: @"SUBDOMAIN"];
 ```
 
 If you happen to clone this repository, don't forget to update corresponding submodules.
