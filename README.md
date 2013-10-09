@@ -30,7 +30,7 @@ If you happen to clone this repository, don't forget to update corresponding sub
 
 ### Problems?!
 
-In order to run CocoaMite you need to activate api access inside your mite account settings. (More infos [here](http://mite.yo.lk/en/api/basics.html "more infos"))  
+In order to run CocoaMite you need to activate api access inside your mite account settings. (More info [here](http://mite.yo.lk/en/api/basics.html "more infos"))  
 
 If you want to play with the example and tests, fill in your personal api key & subdomain (Tests: Define.h / Example: AppDelegate.m).
 
