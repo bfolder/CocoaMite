@@ -372,7 +372,7 @@
             NSString *errorString = [[NSString alloc] initWithData: operation.responseData encoding: NSUTF8StringEncoding];
             error = [NSError errorWithDomain: CocoaMiteErrorDomain code: code userInfo: @{@"message": errorString}];
             
-            // No errors if we code code 200
+            // No errors if we got code 200
             if(code == 200)
                 error = nil;
         }
