@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "CocoaMite"
   s.version      = "0.0.1"
-  s.summary      = "CocoaMite is an Objective-C wrapper around the mite API."
+  s.summary      = "CocoaMite is an Objective-C wrapper around the mite api."
   s.description  = <<-DESC
-                   CocoaMite is an Objective-C wrapper around the [mite API](http://mite.yo.lk/api/ "mite API").
+                   CocoaMite is an Objective-C wrapper around the [mite api](http://mite.yo.lk/api/ "mite api").
 				   [mite](http://mite.yo.lk/ "mite") is 'sleek time tracking for teams & freelancers'.
                    DESC
   s.homepage     = "http://github.com/bfolder/CocoaMite"
