@@ -10,8 +10,6 @@
 		606D9C9417FAE5200088351E /* CocoaMite.m in Sources */ = {isa = PBXBuildFile; fileRef = 606D9C9317FAE5200088351E /* CocoaMite.m */; };
 		606D9C9617FB05FD0088351E /* UTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 606D9C9517FB05FD0088351E /* UTests.m */; };
 		60C3A53A17F9897C005F0EB7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53917F9897C005F0EB7 /* SenTestingKit.framework */; };
-		60C3A53C17F9897C005F0EB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53B17F9897C005F0EB7 /* Foundation.framework */; };
-		60C3A53E17F9897C005F0EB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C3A53D17F9897C005F0EB7 /* UIKit.framework */; };
 		60C3A54417F9897C005F0EB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60C3A54217F9897C005F0EB7 /* InfoPlist.strings */; };
 		60C3A54617F9897C005F0EB7 /* RTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3A54517F9897C005F0EB7 /* RTests.m */; };
 		60CECC851805366800D87A03 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CECC731805366800D87A03 /* AFHTTPClient.m */; };
@@ -23,6 +21,10 @@
 		60CECC8B1805366800D87A03 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CECC801805366800D87A03 /* AFURLConnectionOperation.m */; };
 		60CECC8C1805366800D87A03 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CECC821805366800D87A03 /* AFXMLRequestOperation.m */; };
 		60CECC8D1805366800D87A03 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CECC841805366800D87A03 /* UIImageView+AFNetworking.m */; };
+		60CECC8E1805370900D87A03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604F30D717FC19E500ADF66E /* SystemConfiguration.framework */; };
+		60CECC8F1805371100D87A03 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604F30D917FC19EA00ADF66E /* MobileCoreServices.framework */; };
+		60CECC931805372600D87A03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CECC921805372600D87A03 /* UIKit.framework */; };
+		60CECC951805372F00D87A03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CECC941805372F00D87A03 /* Foundation.framework */; };
 		60E8A58D17FB1711000CF936 /* CTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A58C17FB1711000CF936 /* CTests.m */; };
 		60E8A58F17FB17B1000CF936 /* DTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A58E17FB17B1000CF936 /* DTests.m */; };
 /* End PBXBuildFile section */
@@ -38,8 +40,6 @@
 		606D9C9517FB05FD0088351E /* UTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTests.m; sourceTree = "<group>"; };
 		60C3A53617F9897C005F0EB7 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3A53917F9897C005F0EB7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		60C3A53B17F9897C005F0EB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		60C3A53D17F9897C005F0EB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		60C3A54117F9897C005F0EB7 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		60C3A54317F9897C005F0EB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		60C3A54517F9897C005F0EB7 /* RTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTests.m; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		60CECC821805366800D87A03 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		60CECC831805366800D87A03 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		60CECC841805366800D87A03 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		60CECC921805372600D87A03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		60CECC941805372F00D87A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		60E8A58C17FB1711000CF936 /* CTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTests.m; sourceTree = "<group>"; };
 		60E8A58E17FB17B1000CF936 /* DTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,9 +74,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CECC951805372F00D87A03 /* Foundation.framework in Frameworks */,
+				60CECC931805372600D87A03 /* UIKit.framework in Frameworks */,
+				60CECC8F1805371100D87A03 /* MobileCoreServices.framework in Frameworks */,
+				60CECC8E1805370900D87A03 /* SystemConfiguration.framework in Frameworks */,
 				60C3A53A17F9897C005F0EB7 /* SenTestingKit.framework in Frameworks */,
-				60C3A53E17F9897C005F0EB7 /* UIKit.framework in Frameworks */,
-				60C3A53C17F9897C005F0EB7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,13 +125,13 @@
 		60C3A53817F9897C005F0EB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60CECC941805372F00D87A03 /* Foundation.framework */,
+				60CECC921805372600D87A03 /* UIKit.framework */,
 				604F30D917FC19EA00ADF66E /* MobileCoreServices.framework */,
 				604F30D717FC19E500ADF66E /* SystemConfiguration.framework */,
 				6056110A17F9B2EE00102BE4 /* Cocoa.framework */,
 				6056110817F9B2E900102BE4 /* Foundation.framework */,
 				60C3A53917F9897C005F0EB7 /* SenTestingKit.framework */,
-				60C3A53B17F9897C005F0EB7 /* Foundation.framework */,
-				60C3A53D17F9897C005F0EB7 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

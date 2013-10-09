@@ -28,7 +28,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -50,7 +50,7 @@
 -(CocoaMite *)client
 {
     if(!_client)
-        _client = [[CocoaMite alloc] initWithApiKey: API_KEY subdomain: SUBDOMAIN];
+        _client = [[CocoaMite alloc] initWithApiKey: @"YOUR_API_KEY" subdomain: @"YOUR_SUBDOMAIN"];
     
     return _client;
 }
