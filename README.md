@@ -36,7 +36,7 @@ If you want to play with the example and tests, fill in your personal api key & 
 
 ### Usage
 
-As mentioned at the beginning CocoaMite is just a wrapper around the public REST api. Take a look at the header file to get an idea about what the wrapper is capable of. Most of the comments are derived from the mite API Documentation. 
+As mentioned at the beginning,CocoaMite is just a wrapper around the public REST api. Take a look at the header file to get an idea of what the wrapper is capable of. Most of the comments are derived from the mite API Documentation. 
 
 ### Todos (10/9/13)
 
