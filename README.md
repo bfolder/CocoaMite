@@ -8,7 +8,7 @@ Compatibility: iOS 5+ / Mac OS X 10.7+
 ---
 ### Installation
 
-Installing CocoaMite is pretty straight-forward if you have CocoaPods installed.
+Installing CocoaMite is pretty straightforward if you have CocoaPods installed.
 
 Step 1: Add the CocoaMite dependency to your podfile:
 
