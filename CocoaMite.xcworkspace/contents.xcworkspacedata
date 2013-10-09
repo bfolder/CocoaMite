@@ -11,7 +11,7 @@
       location = "group:CocoaMite"
       name = "CocoaMite">
       <Group
-         location = "group:Vendor/AFNetworking"
+         location = "group:../AFNetworking/AFNetworking"
          name = "AFNetworking">
          <FileRef
             location = "group:AFHTTPClient.h">

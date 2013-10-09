@@ -12,6 +12,8 @@
 	<dict>
 		<key>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</key>
 		<string>https://github.com/bfolder/CocoaMite.git</string>
+		<key>2FE00FB6-95D1-427C-A62C-3A22118AC04D</key>
+		<string>https://github.com/AFNetworking/AFNetworking.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CocoaMite.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</key>
 		<string>..</string>
+		<key>2FE00FB6-95D1-427C-A62C-3A22118AC04D</key>
+		<string>../AFNetworking</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/bfolder/CocoaMite.git</string>
@@ -28,6 +32,14 @@
 	<string>00B06DB8-4815-47C9-8EC7-F0FB559AD1A6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FE00FB6-95D1-427C-A62C-3A22118AC04D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworking</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
