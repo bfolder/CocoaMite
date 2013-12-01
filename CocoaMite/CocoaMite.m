@@ -212,7 +212,7 @@
     [self _callMethod: @"PUT"
              withPath: [NSString stringWithFormat: @"customers/%li.json", (long)customerId]
            parameters: nil
-                 data: data
+                 data: @{@"customer": data}
              callback: callback];
 }
 
@@ -223,7 +223,7 @@
     [self _callMethod: @"PUT"
              withPath: [NSString stringWithFormat: @"projects/%li.json", (long)projectId]
            parameters: nil
-                 data: data
+                 data: @{@"project": data}
              callback: callback];
 }
 
@@ -234,7 +234,7 @@
     [self _callMethod: @"PUT"
              withPath: [NSString stringWithFormat: @"services/%li.json", (long)serviceId]
            parameters: nil
-                 data: data
+                 data: @{@"service": data}
              callback: callback];
 }
 
@@ -245,7 +245,7 @@
     [self _callMethod: @"PUT"
              withPath: [NSString stringWithFormat: @"time_entries/%li.json", (long)timeEntryId]
            parameters: nil
-                 data: data
+                 data: @{@"time_entry": data}
              callback: callback];
 }
 
