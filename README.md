@@ -13,7 +13,7 @@ Installing CocoaMite is pretty straightforward if you have CocoaPods installed.
 Step 1: Add the CocoaMite dependency to your podfile:
 
 ```Ruby
-pod 'CocoaMite', :podspec => 'https://raw.github.com/bfolder/CocoaMite/master/CocoaMite.podspec'
+pod 'CocoaMite'
 ```
 
 Step 2: Include the header:
